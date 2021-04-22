@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "800788211468",
+    "project_id": "memorybook-94b80",
+    "storage_bucket": "memorybook-94b80.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:800788211468:android:d2009ebd28e2cf877d0b29",
+        "android_client_info": {
+          "package_name": "com.avara.memorybook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "800788211468-gblqi5880vv3ni612e60afi7kmpsge0d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxZ9gOWeHYQUYfE0VJobM9gR63CaNExuo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "800788211468-gblqi5880vv3ni612e60afi7kmpsge0d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

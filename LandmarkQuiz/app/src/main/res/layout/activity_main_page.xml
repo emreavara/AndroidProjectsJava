@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:onClick="startGame"
+    tools:context=".MainPageActivity">
+
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:cropToPadding="false"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/landmarkimage" />
+
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="128dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="30dp"
+        android:onClick="startGame"
+        android:shadowColor="#00BCD4"
+        android:text="Start"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#03A9F4"
+        android:textColorHint="#03A9F4"
+        android:textColorLink="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/exitButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gameNameText"
+        app:rippleColor="#03A9F4"
+        app:strokeColor="#03A9F4" />
+
+    <Button
+        android:id="@+id/exitButton"
+        android:layout_width="128dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="197dp"
+        android:onClick="exitGame"
+        android:shadowColor="#00BCD4"
+        android:text="Exit"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#03A9F4"
+        android:textColorHint="#03A9F4"
+        android:textColorLink="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/startButton"
+        app:rippleColor="#03A9F4"
+        app:strokeColor="#03A9F4" />
+
+    <TextView
+        android:id="@+id/gameNameText"
+        android:layout_width="301dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="216dp"
+        android:layout_marginBottom="77dp"
+        android:background="#FFFFFF"
+        android:gravity="center|center_vertical"
+        android:text="Landmark Quiz"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/startButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
