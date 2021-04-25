@@ -23,6 +23,12 @@ public class CustomLayoutAdaptor extends RecyclerView.Adapter<CustomLayoutAdapto
     private ArrayList<String> memoryImageArrayList;
     private ArrayList<String> memoryTextArrayList;
 
+    public CustomLayoutAdaptor(ArrayList<String> titleArrayList, ArrayList<String> dateArrayList, ArrayList<String> memoryImageArrayList, ArrayList<String> memoryTextArrayList) {
+        this.titleArrayList = titleArrayList;
+        this.dateArrayList = dateArrayList;
+        this.memoryImageArrayList = memoryImageArrayList;
+        this.memoryTextArrayList = memoryTextArrayList;
+    }
 
     @NonNull
     @Override
