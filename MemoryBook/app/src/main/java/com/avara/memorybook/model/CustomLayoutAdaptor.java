@@ -1,5 +1,6 @@
 package com.avara.memorybook.model;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -9,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.avara.memorybook.R;
+import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
@@ -25,7 +27,9 @@ public class CustomLayoutAdaptor extends RecyclerView.Adapter<CustomLayoutAdapto
     @NonNull
     @Override
     public MemoryHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        View view = layoutInflater.inflate(R.layout.custom_memory_page, parent, false);
+        return new MemoryHolder(view);
     }
 
     @Override
@@ -33,6 +37,7 @@ public class CustomLayoutAdaptor extends RecyclerView.Adapter<CustomLayoutAdapto
         holder.titleTextView.setText(titleArrayList.get(position));
         holder.memoryTextView.setText(memoryTextArrayList.get(position));
         holder.dateTextView.setText(dateArrayList.get(position));
+        Picasso.get().load(memoryImageArrayList.get(position)).into(holder.memoryImageView);
 
 
 
