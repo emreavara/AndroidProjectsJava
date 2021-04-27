@@ -2,6 +2,7 @@ package com.avara.instagramcloneparse;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.view.View;
@@ -24,6 +25,12 @@ public class SignUpActivity extends AppCompatActivity {
         usernameText = findViewById(R.id.signupActivityNameText);
         passwordText = findViewById(R.id.signupActivityPasswordText);
 
+        ParseUser parseUser = ParseUser.getCurrentUser();
+
+        if(parseUser != null) {
+            Intent intent = new Intent(getApplicationContext(), FeedActivity.class);
+            startActivity(intent);
+        }
 
     }
 
@@ -37,6 +44,8 @@ public class SignUpActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(getApplicationContext(), "Welcome " + user.getUsername(), Toast.LENGTH_LONG ).show();
                     // Intent
+                    Intent intent = new Intent(getApplicationContext(), FeedActivity.class);
+                    startActivity(intent);
 
                 }
             }
@@ -58,8 +67,9 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(getApplicationContext(), "User created !", Toast.LENGTH_LONG).show();
-
                     // Intent
+                    Intent intent = new Intent(getApplicationContext(), FeedActivity.class);
+                    startActivity(intent);
                 }
 
             }
