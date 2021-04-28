@@ -8,13 +8,18 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.parse.LogOutCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 
+import java.util.List;
+
 public class FeedActivity extends AppCompatActivity {
+
+    ListView listView;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -26,7 +31,8 @@ public class FeedActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.add_post){
-            // Intent
+            Intent intentToNewPost = new Intent(FeedActivity.this, UploadActivity.class);
+            startActivity(intentToNewPost);
 
         } else if (item.getItemId() == R.id.logout){
             ParseUser.logOutInBackground(new LogOutCallback() {
@@ -51,5 +57,7 @@ public class FeedActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed);
+
+        listView = findViewById(R.id.listView);
     }
 }
