@@ -12,12 +12,20 @@ public class SurvivorBird extends ApplicationAdapter {
 	SpriteBatch batch;
 	Texture background;
 	Texture bird;
-
+	Texture bee1;
+	Texture bee2;
+	Texture bee3;
 	float birdX = 0;
 	float birdY = 0;
 	int gameState = 0;
 	float velocity = 0;
-	float gravity = 0.1f;
+	float gravity = 0.15f;
+	float enemyVelocity = 2;
+
+
+	int numberOfEnemies = 4;
+	float[] enemyX = new float[numberOfEnemies];
+	float distance = 0;
 
 	
 	@Override
@@ -25,18 +33,47 @@ public class SurvivorBird extends ApplicationAdapter {
 		batch = new SpriteBatch();
 		background = new Texture("background.png");
 		bird = new Texture("bird.png");
+		bee1 = new Texture("bee.png");
+		bee2 = new Texture("bee.png");
+		bee3 = new Texture("bee.png");
 
 		birdX = Gdx.graphics.getWidth()/4;
 		birdY = Gdx.graphics.getHeight()/3;
+
+		distance = Gdx.graphics.getWidth()/2;
+
+		for(int i = 0; i<numberOfEnemies; i++){
+			enemyX[i] = Gdx.graphics.getWidth() - bee1.getWidth()/2 + i*distance;
+		}
 
 	}
 
 	@Override
 	public void render () {
+		batch.begin();
+		batch.draw(background, 0,0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+
 		if(gameState == 1){
+
+
 			if(Gdx.input.justTouched()){
-				velocity = -7;
+				velocity = -5;
 			}
+
+			for(int i = 0; i<numberOfEnemies; i++){
+				if (enemyX[i] < -bee1.getWidth()){
+					enemyX[i] = enemyX[i] + numberOfEnemies*distance;
+				}else{
+					enemyX[i] = enemyX[i] - enemyVelocity;
+				}
+
+				batch.draw(bee1, enemyX[i], 50, Gdx.graphics.getWidth()/15, Gdx.graphics.getHeight()/10);
+				batch.draw(bee2, enemyX[i], 150, Gdx.graphics.getWidth()/15, Gdx.graphics.getHeight()/10);
+				batch.draw(bee3, enemyX[i], 250, Gdx.graphics.getWidth()/15, Gdx.graphics.getHeight()/10);
+
+			}
+
+
 			if(birdY > 0 || velocity <0){
 				velocity = velocity + gravity;
 				birdY = birdY - velocity;
@@ -47,8 +84,7 @@ public class SurvivorBird extends ApplicationAdapter {
 			}
 		}
 
-		batch.begin();
-		batch.draw(background, 0,0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+
 		batch.draw(bird, birdX, birdY, Gdx.graphics.getWidth()/15, Gdx.graphics.getHeight()/10);
 
 		batch.end();
